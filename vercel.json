@@ -1,0 +1,22 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "outputDirectory": "web",
+  "installCommand": "",
+  "buildCommand": "",
+  "functions": {
+    "api/carpet.py": {
+      "memory": 512,
+      "maxDuration": 30,
+      "includeFiles": "rotation/**"
+    }
+  },
+  "headers": [
+    {
+      "source": "/api/carpet",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, s-maxage=30, stale-while-revalidate=120" }
+      ]
+    }
+  ]
+}
